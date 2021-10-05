@@ -1,4 +1,4 @@
-import 'package:dynamic_ui_enable_image_add/presentation/first/first_page.dart';
+import 'package:dynamic_ui_enable_image_add/first/first_page.dart';
 import 'package:flutter/material.dart';
 
 class MyApp extends StatelessWidget {
