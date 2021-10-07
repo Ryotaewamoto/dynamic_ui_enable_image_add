@@ -30,6 +30,26 @@
   <link rel="manifest" href="manifest.json">
 </head>
 <body>
+<script type="module">
+  // Import the functions you need from the SDKs you need
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/9.1.1/firebase-app.js";
+  // TODO: Add SDKs for Firebase products that you want to use
+  // https://firebase.google.com/docs/web/setup#available-libraries
+
+  // Your web app's Firebase configuration
+  const firebaseConfig = {
+    apiKey: "AIzaSyDC0jiAA1Z23eebBszukxy4VNkSL_st_P0",
+    authDomain: "dynamic-ui-enable-image-add.firebaseapp.com",
+    projectId: "dynamic-ui-enable-image-add",
+    storageBucket: "dynamic-ui-enable-image-add.appspot.com",
+    messagingSenderId: "684276189765",
+    appId: "1:684276189765:web:7bafc343cf4db12031712c"
+  };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+</script>
+
   <!-- This script installs service_worker.js to provide PWA functionality to
        application. For more information, see:
        https://developers.google.com/web/fundamentals/primers/service-workers -->
