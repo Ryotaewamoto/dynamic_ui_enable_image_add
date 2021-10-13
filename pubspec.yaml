@@ -18,15 +18,11 @@ dependencies:
 
 
   # Online Storage For Files
-  firebase_storage: ^8.0.4
+  firebase_storage: ^10.0.5
 
   # Online Database For Data
-  cloud_firestore: ^1.0.6
+  cloud_firestore: ^2.5.3
 
-  # Add Authentication such as Google SignIn, Facebook SignIn, Apple SignIn, Phone Auth etc.
-  firebase_auth: ^1.1.1
-
-  firebase_messaging: ^9.1.1
 
 dev_dependencies:
   flutter_test:
