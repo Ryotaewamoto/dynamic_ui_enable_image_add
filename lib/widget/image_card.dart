@@ -24,7 +24,7 @@ class ImageRoundedCard extends StatelessWidget {
           ),
           child: this.favoriteImage!.imageURL != null
               ? Ink.image(
-                  image: NetworkImage(this.favoriteImage!.imageURL.toString()),
+                  image: NetworkImage(this.favoriteImage!.imageURL!),
                   child: InkWell(
                     onTap: () {},
                   ),

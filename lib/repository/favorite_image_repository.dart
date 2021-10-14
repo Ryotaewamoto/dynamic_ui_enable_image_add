@@ -13,10 +13,13 @@ class FavoriteImageRepository {
 
   final _db = FirebaseFirestore.instance;
 
-  /// NPOのリストを返す
+  /// リストを返す
   Future<List<FavoriteImage>> fetchFavoriteImageList() async {
     try {
-      final snapshot = await _db.collection('favoriteImages').get();
+      final snapshot = await _db
+          .collection('favoriteImages')
+          .orderBy('createdAt', descending: true)
+          .get();
       final favoriteImageList =
           snapshot.docs.map((doc) => FavoriteImage.fromDoc(doc)).toList();
       return favoriteImageList;
@@ -30,7 +33,10 @@ class FavoriteImageRepository {
   }) async {
     final newDoc = _db.collection('favoriteImages').doc();
     try {
-      await newDoc.set({'imageURL': favoriteImage.imageURL});
+      await newDoc.set({
+        'imageURL': favoriteImage.imageURL,
+        'createdAt': Timestamp.now(),
+      });
     } catch (e) {
       throw 'エラーが発生しました。\n電波の良いところで再度試してください。';
     }

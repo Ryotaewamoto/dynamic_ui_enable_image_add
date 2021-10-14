@@ -1,5 +1,5 @@
 import 'package:dynamic_ui_enable_image_add/presentation/first/first_model.dart';
-import 'package:dynamic_ui_enable_image_add/presentation/first/first_widget.dart';
+import 'package:dynamic_ui_enable_image_add/widget/image_card.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -27,9 +27,14 @@ class FirstPage extends StatelessWidget {
                       ),
                       child: Column(
                         children: <Widget>[
-                          FirstWidget(
-                            favoriteImageList: model.favoriteImageList,
-                            firstModel: model,
+                          Wrap(
+                            alignment: WrapAlignment.start,
+                            children: model.favoriteImageList
+                                .map((favoriteImage) => ImageRoundedCard(
+                                      favoriteImage: favoriteImage,
+                                      firstModel: model,
+                                    ))
+                                .toList(),
                           ),
                         ],
                       ),
