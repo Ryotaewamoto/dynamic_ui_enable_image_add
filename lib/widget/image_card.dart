@@ -25,18 +25,15 @@ class ImageRoundedCard extends StatelessWidget {
           child: this.favoriteImage!.imageURL != null
               ? Ink.image(
                   image: NetworkImage(this.favoriteImage!.imageURL!),
-                  child: InkWell(
-                    onTap: () {},
-                  ),
                   height: 400,
                   width: 200,
-                  fit: BoxFit.fill,
+                  fit: BoxFit.cover,
                 )
               : InkWell(
                   onTap: () async {
                     await this
                         .firstModel!
-                        .uploadSubImageToStorage(this.favoriteImage!);
+                        .addImageAndUploadImageToStorage(this.favoriteImage!);
                   },
                   child: Container(
                     color: Colors.grey.withOpacity(0.5),

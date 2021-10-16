@@ -11,7 +11,7 @@ class FirstPage extends StatelessWidget {
       child: Consumer<FirstModel>(builder: (context, model, child) {
         return Scaffold(
           appBar: AppBar(
-            title: Text('【Flutter Web】動的に画像を追加・削除できるUIを作成'),
+            title: Text('【Flutter Web】動的に画像を追加できるUIを作成'),
           ),
           body: model.isLoading
               ? Center(

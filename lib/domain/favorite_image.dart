@@ -3,6 +3,7 @@ import 'dart:math';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 class FavoriteImage {
+  String? documentId;
   String? imageURL;
   Timestamp? createdAt;
 
@@ -11,7 +12,9 @@ class FavoriteImage {
 
   /// デフォルトコンストラクタ
   FavoriteImage({
+    this.documentId,
     this.imageURL,
+    this.createdAt,
     this.id,
   });
 
@@ -23,12 +26,15 @@ class FavoriteImage {
   }
 
   /// FireStoreからデータを取ってきた時に使用
-  FavoriteImage.fromDoc(DocumentSnapshot doc) {
+  factory FavoriteImage.fromDoc(DocumentSnapshot doc) {
     Map<String, dynamic> data = doc.data() as Map<String, dynamic>;
+    final String documentId = doc.id;
     final String imageURL = data['imageURL'];
     final Timestamp createdAt = data['createdAt'];
-    this.imageURL = imageURL;
-    this.createdAt = createdAt;
-    this.id = Random().nextInt(99999);
+    return FavoriteImage(
+      documentId: documentId,
+      imageURL: imageURL,
+      createdAt: createdAt,
+    );
   }
 }

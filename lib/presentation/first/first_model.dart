@@ -23,8 +23,10 @@ class FirstModel extends ChangeNotifier {
     _endLoading();
   }
 
-  /// 画像をstorageに保存
-  Future<void> uploadSubImageToStorage(FavoriteImage favoriteImage) async {
+  /// 画像をfirestoreとstorageに保存
+  Future<void> addImageAndUploadImageToStorage(
+    FavoriteImage favoriteImage,
+  ) async {
     _uploadImage(onSelected: (file) async {
       _startLoading();
       final path = "favoriteImage/favoriteImage${favoriteImage.id}";
@@ -53,7 +55,7 @@ class FirstModel extends ChangeNotifier {
     });
   }
 
-  // 画像を変更
+  /// 画像のURLがfirestoreに入った時、インスタンスのimageURLを変更
   void _changeImageURL(FavoriteImage favoriteImage, String url) {
     this.favoriteImageList.forEach((element) {
       if (element.id == favoriteImage.id) {
@@ -63,11 +65,13 @@ class FirstModel extends ChangeNotifier {
     notifyListeners();
   }
 
+  /// 画像のリストをfirestoreから取得
   Future<void> _fetchFavoriteList() async {
     this.favoriteImageList =
         await _favoriteImageRepository!.fetchFavoriteImageList();
   }
 
+  /// firestoreにデータを追加
   void _addFavoriteImage() {
     this.favoriteImageList.add(FavoriteImage.create());
   }

@@ -13,12 +13,12 @@ class FavoriteImageRepository {
 
   final _db = FirebaseFirestore.instance;
 
-  /// リストを返す
+  /// 画像のリストを返す
   Future<List<FavoriteImage>> fetchFavoriteImageList() async {
     try {
       final snapshot = await _db
           .collection('favoriteImages')
-          .orderBy('createdAt', descending: true)
+          .orderBy('createdAt', descending: false) // 追加順に並ぶ
           .get();
       final favoriteImageList =
           snapshot.docs.map((doc) => FavoriteImage.fromDoc(doc)).toList();
@@ -28,6 +28,7 @@ class FavoriteImageRepository {
     }
   }
 
+  /// 画像のデータ(URL)をFirestoreに追加
   Future<void> addFavoriteImage({
     required FavoriteImage favoriteImage,
   }) async {
