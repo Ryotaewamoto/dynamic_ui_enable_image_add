@@ -17,4 +17,3 @@ samples, guidance on mobile development, and a full API reference.
 
 # 完成品
 
-![Sample](https://user-images.githubusercontent.com/75112184/137586598-d0ca98e1-7141-4ff7-a6cc-2c107acfdc05.mov)
